@@ -3,10 +3,10 @@ const { Trip, Traveler, Location } = require("../../models");
 
 router.get("/", async (req, res) => {
   try{
-    const category = await Traveler.findAll({
+    const traveler = await Traveler.findAll({
       attributes: {exclude: [`createdAt`,`updatedAt`]}
     })
-    res.status(200).json(category)
+    res.status(200).json(traveler)
   }catch (err){
     console.log(err)
     res.status(500).json(err)
